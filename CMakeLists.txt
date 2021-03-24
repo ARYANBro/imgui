@@ -1,4 +1,4 @@
-project(ImGui)
+project(imgui)
 
 set(SourceFiles
     imgui_demo.cpp
@@ -10,15 +10,15 @@ set(SourceFiles
     backends/imgui_impl_glfw.cpp
 )
 
-add_library(${PROJECT_NAME} ${SourceFiles})
+add_library(${PROJECT_NAME} STATIC ${SourceFiles})
 
 target_include_directories(${PROJECT_NAME}
-    PUBLIC "${CMAKE_CURRENT_SOURCE_DIR}"
+    PUBLIC ${CMAKE_CURRENT_SOURCE_DIR}
 )
 
 target_link_libraries(${PROJECT_NAME}
     glfw
-    Glad
+    glad
 )
 
 add_compile_definitions(
